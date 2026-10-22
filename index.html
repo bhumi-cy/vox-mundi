@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081629">
+  <meta name="description" content="Vox Mundi MUN 3.0 — Where Ideas Echo. Leaders Emerge. Join the online conference on 31 October–1 November 2026.">
+
+  <title>Vox Mundi MUN 3.0 — Where Ideas Echo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FINAL HERO AND MOBILE REPAIRS -->
+  <style>
+    :root {
+      --navy: #081629;
+      --navy-light: #10294c;
+      --gold: #c49a42;
+      --ivory: #f8f3e8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* HERO: no image, no square watermark */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 78% 43%,
+          rgba(52, 98, 158, 0.24) 0%,
+          rgba(30, 63, 106, 0.12) 32%,
+          transparent 67%
+        ),
+        linear-gradient(
+          115deg,
+          #050d19 0%,
+          #0b1c32 53%,
+          #10294c 100%
+        );
+    }
+
+    /* Large, soft blue atmospheric glow */
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      width: min(76vw, 900px);
+      aspect-ratio: 1;
+      right: -19%;
+      top: 48%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(78, 119, 170, 0.22) 0%,
+        rgba(48, 83, 130, 0.13) 35%,
+        rgba(28, 56, 94, 0.06) 56%,
+        transparent 72%
+      );
+    }
+
+    /* Subtle antique-gold lighting */
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      width: 350px;
+      height: 350px;
+      right: 9%;
+      top: 7%;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(196, 154, 66, 0.09),
+        transparent 70%
+      );
+      filter: blur(20px);
+    }
+
+    .hero-content,
+    .hero-side-note,
+    .scroll-cue {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grain {
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Header logo */
+    .brand img {
+      display: block;
+      width: 49px;
+      height: 49px;
+      flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* About section */
+    .about-section {
+      display: block;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: clamp(30px, 7vw, 100px);
+      margin-bottom: 48px;
+    }
+
+    .about-image {
+      width: min(100%, 580px);
+      margin-inline: auto;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* General responsive safety */
+    .section,
+    .conference-section,
+    .quick-facts,
+    .site-footer {
+      min-width: 0;
+    }
+
+    .committee-card,
+    .principle-card,
+    .fact {
+      min-width: 0;
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* TABLETS */
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .hero::before {
+        width: 80vw;
+        right: -28%;
+      }
+
+      .hero h1 {
+        font-size: clamp(4rem, 8vw, 7rem);
+      }
+
+      .section {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .committee-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* PHONES */
+    @media (max-width: 768px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      .site-header {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-copy strong {
+        font-size: 15px;
+      }
+
+      .brand-copy small {
+        font-size: 9px;
+      }
+
+      .hero {
+        min-height: max(680px, calc(100svh - 65px));
+        padding: 78px 6% 84px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero::before {
+        width: 125vw;
+        right: -57%;
+        top: 36%;
+      }
+
+      .hero::after {
+        width: 220px;
+        height: 220px;
+        right: -12%;
+        top: 7%;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.8rem, 10.8vw, 4.7rem);
+        line-height: 1.03;
+        letter-spacing: -1.5px;
+        overflow-wrap: break-word;
+      }
+
+      .hero h1 > span {
+        display: block;
+      }
+
+      .hero-second-line {
+        font-size: 0.74em;
+        line-height: 1.2;
+      }
+
+      .hero-description {
+        max-width: 390px;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hero-actions .button {
+        max-width: 100%;
+      }
+
+      .hero-side-note,
+      .scroll-cue {
+        display: none;
+      }
+
+      .hero-edition {
+        flex-wrap: wrap;
+        gap: 9px;
+        font-size: 9px;
+      }
+
+      .quick-facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .fact {
+        padding: 22px 16px;
+      }
+
+      .fact strong {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+      }
+
+      .section {
+        padding: 68px 6%;
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+        margin-bottom: 32px;
+      }
+
+      .about-image {
+        max-width: 100%;
+      }
+
+      .section-heading h2,
+      .about-heading h2,
+      .conference-intro h2 {
+        font-size: clamp(2.15rem, 8.7vw, 3.3rem);
+        line-height: 1.13;
+      }
+
+      .principles-grid,
+      .committee-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .principle-card,
+      .committee-card {
+        min-width: 0;
+        padding: 26px 22px;
+      }
+
+      .principle-bottom,
+      .committee-agenda,
+      .committee-full {
+        overflow-wrap: anywhere;
+        line-height: 1.8;
+      }
+
+      .founder-message {
+        font-size: clamp(1.55rem, 6.8vw, 2.35rem);
+        line-height: 1.4;
+      }
+
+      .conference-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        padding: 64px 6%;
+      }
+
+      .conference-intro h2 br {
+        display: none;
+      }
+
+      .conference-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 14px;
+      }
+
+      .conference-stats > div {
+        min-width: 0;
+      }
+
+      .conference-stats strong {
+        font-size: 15px;
+        overflow-wrap: anywhere;
+      }
+
+      .register-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        padding: 32px 22px;
+      }
+
+      .register-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+        line-height: 1.8;
+      }
+
+      .register-action .button {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .footer-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+
+      .footer-contact a {
+        overflow-wrap: anywhere;
+      }
+
+      .footer-bottom {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+
+    /* EXTRA SMALL PHONES */
+    @media (max-width: 380px) {
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero h1 {
+        font-size: 2.65rem;
+        letter-spacing: -1.4px;
+      }
+
+      .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .conference-stats {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .fact {
+        padding: 19px 12px;
+      }
+    }
+
+    /* REDUCED MOTION ACCESSIBILITY */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body id="top">
+
+  <!-- LOADING SCREEN -->
+  <div class="page-loader" aria-hidden="true">
+    <span class="loader-mark">V.</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Vox Mundi home">
+      <img src="assets/vox-logo.jpeg" alt="Vox Mundi logo" width="49" height="49">
+      <span class="brand-copy">
+        <strong>VOX MUNDI</strong>
+        <small>VOICE OF THE WORLD</small>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#about">Our Story</a>
+      <a href="#philosophy">Our Philosophy</a>
+      <a href="#committees">Committees</a>
+      <a href="#conference">Conference</a>
+      <a class="nav-cta" href="#register">Register <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <!-- Intentionally no logo image in the background.
+           This prevents the white square from appearing. -->
+
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          THE VOICE OF A GENERATION
+        </p>
+
+        <h1 id="hero-title">
+          <span>Where Ideas</span>
+          <span><em>Echo.</em></span>
+          <span class="hero-second-line">Leaders Emerge.</span>
+        </h1>
+
+        <p class="hero-description">
+          A platform for dialogue, diplomacy, critical thinking,
+          and the leaders who dare to make a difference.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-gold" href="#register">
+            Enter the Conference <span>↗</span>
+          </a>
+
+          <a class="text-link" href="#about">
+            Discover our story <span>↓</span>
+          </a>
+        </div>
+
+        <div class="hero-edition">
+          <span class="edition-line"></span>
+          <span>PROUDLY PRESENTING</span>
+          <strong>VOX MUNDI MUN 3.0</strong>
+        </div>
+      </div>
+
+      <div class="hero-side-note" aria-hidden="true">
+        SPEAK. REPRESENT. RESOLVE.
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to our story">
+        <span></span>
+        SCROLL TO EXPLORE
+      </a>
+    </section>
+
+    <!-- QUICK FACTS -->
+    <section class="quick-facts" aria-label="Conference highlights">
+      <div class="fact">
+        <span class="fact-label">WHEN</span>
+        <strong>31 Oct — 1 Nov</strong>
+        <span class="fact-note">2026</span>
+      </div>
+
+      <div class="fact">
+        <span class="fact-label">WHERE</span>
+        <strong>Online</strong>
+        <span class="fact-note">Virtual conference</span>
+      </div>
+
+      <div class="fact">
+        <span class="fact-label">REGISTRATION</span>
+        <strong>₹399</strong>
+        <span class="fact-note">Per delegate</span>
+      </div>
+
+      <div class="fact">
+        <span class="fact-label">PRIZE POOL</span>
+        <strong>₹21,000+</strong>
+        <span class="fact-note">Cash prizes</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="section-index">01 / OUR STORY</div>
+
+      <div class="about-grid">
+        <div class="about-heading reveal">
+          <p class="eyebrow">MORE THAN A CONFERENCE</p>
+          <h2>A world of ideas.<br><em>A voice for everyone.</em></h2>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="lead">
+            Vox Mundi means <em>Voice of the World.</em>
+          </p>
+
+          <p>
+            We believe meaningful dialogue can transform diverse
+            perspectives into informed action. Through Model United
+            Nations simulations, young minds engage with pressing
+            global and national issues while developing leadership,
+            critical thinking, diplomacy, negotiation, research,
+            and public-speaking skills.
+          </p>
+
+          <p>
+            From MUN 1.0 to MUN 3.0, our journey continues with one
+            purpose: to create a space where voices are heard,
+            ideas are challenged, and leaders emerge.
+          </p>
+
+          <a class="text-link gold-link" href="#founder">
+            A message from our founder <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-image reveal">
+        <img
+          src="assets/vox-logo.jpeg"
+          alt="Vox Mundi MUN 3.0 official emblem"
+          loading="lazy"
+          width="1254"
+          height="1254"
+        >
+
+        <div class="image-caption">
+          <span>THE JOURNEY CONTINUES</span>
+          <span>VOX MUNDI · 03</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="section philosophy-section" id="philosophy">
+      <div class="section-index">02 / WHAT WE BELIEVE</div>
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">THE VOX MUNDI PHILOSOPHY</p>
+        <h2>Think. Debate. <em>Lead.</em></h2>
+        <p>
+          Three principles. One purpose: meaningful dialogue
+          that leads to informed action.
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        <article class="principle-card reveal">
+          <span class="principle-number">01</span>
+          <div class="principle-symbol" aria-hidden="true">✳</div>
+          <h3>Think</h3>
+          <p>
+            Research the issue. Understand competing perspectives.
+            Question assumptions.
+          </p>
+          <span class="principle-bottom">CURIOSITY BEFORE CONCLUSION</span>
+        </article>
+
+        <article class="principle-card reveal">
+          <span class="principle-number">02</span>
+          <div class="principle-symbol" aria-hidden="true">◎</div>
+          <h3>Debate</h3>
+          <p>
+            Speak with clarity. Negotiate with purpose.
+            Build arguments that move the room.
+          </p>
+          <span class="principle-bottom">CONVICTION WITH EMPATHY</span>
+        </article>
+
+        <article class="principle-card reveal">
+          <span class="principle-number">03</span>
+          <div class="principle-symbol" aria-hidden="true">✧</div>
+          <h3>Lead</h3>
+          <p>
+            Collaborate, draft, resolve, and leave the committee
+            stronger than you found it.
+          </p>
+          <span class="principle-bottom">IDEAS INTO ACTION</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="section founder-section" id="founder">
+      <div class="section-index">03 / A NOTE FROM THE FOUNDER</div>
+
+      <div class="founder-content reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p class="eyebrow">A MESSAGE TO OUR DELEGATES</p>
+
+        <blockquote class="founder-message">
+          The world is listening — and it is your turn to speak.
+        </blockquote>
+
+        <p class="founder-message">
+          Vox Mundi began with a simple yet ambitious vision:
+          to create a platform where ideas transcend boundaries,
+          voices are heard, and leaders are made. MUN 3.0 carries
+          that vision forward with a deeper purpose — to help
+          delegates think deeply, debate effectively, negotiate
+          with purpose, and lead with empathy.
+        </p>
+
+        <div class="founder-signature">
+          <span class="signature-line"></span>
+          <strong>Utkarsh Gupta</strong>
+          <span>Founder, Vox Mundi</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMITTEES -->
+    <section class="section committees-section" id="committees">
+      <div class="section-index">04 / FIND YOUR ARENA</div>
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">VOX MUNDI MUN 3.0</p>
+        <h2>Four committees.<br><em>Four arenas of debate.</em></h2>
+        <p>
+          Explore the agendas, challenge perspectives,
+          and bring your voice to the table.
+        </p>
+      </div>
+
+      <div class="committee-grid">
+        <article class="committee-card reveal">
+          <div class="committee-topline">
+            <span>COMMITTEE 01</span>
+            <span class="committee-icon">01</span>
+          </div>
+          <p class="committee-category">INDIAN POLITICS</p>
+          <h3>AIPPM</h3>
+          <p class="committee-full">All India Political Parties Meet</p>
+          <div class="committee-rule"></div>
+          <span class="agenda-label">AGENDA</span>
+          <p class="committee-agenda">
+            Deliberation upon Caste-Based Politics and
+            Reservation Policy in India.
+          </p>
+          <a href="#register" class="committee-link">Take your place <span>↗</span></a>
+        </article>
+
+        <article class="committee-card reveal">
+          <div class="committee-topline">
+            <span>COMMITTEE 02</span>
+            <span class="committee-icon">02</span>
+          </div>
+          <p class="committee-category">ENVIRONMENT</p>
+          <h3>UNEP</h3>
+          <p class="committee-full">United Nations Environment Programme</p>
+          <div class="committee-rule"></div>
+          <span class="agenda-label">AGENDA</span>
+          <p class="committee-agenda">
+            Addressing the Triple Planetary Crisis of Climate Change,
+            Nature and Biodiversity Loss, and Pollution and Waste.
+          </p>
+          <a href="#register" class="committee-link">Take your place <span>↗</span></a>
+        </article>
+
+        <article class="committee-card reveal">
+          <div class="committee-topline">
+            <span>COMMITTEE 03</span>
+            <span class="committee-icon">03</span>
+          </div>
+          <p class="committee-category">GENDER &amp; ACCOUNTABILITY</p>
+          <h3>UNCSW</h3>
+          <p class="committee-full">United Nations Commission on the Status of Women</p>
+          <div class="committee-rule"></div>
+          <span class="agenda-label">AGENDA</span>
+          <p class="committee-agenda">
+            Digital Evidence and Sexual Violence in Conflict:
+            Bridging the Accountability Gap.
+          </p>
+          <a href="#register" class="committee-link">Take your place <span>↗</span></a>
+        </article>
+
+        <article class="committee-card reveal">
+          <div class="committee-topline">
+            <span>COMMITTEE 04</span>
+            <span class="committee-icon">04</span>
+          </div>
+          <p class="committee-category">SPORTS &amp; STRATEGY</p>
+          <h3>IPL</h3>
+          <p class="committee-full">Indian Premier League</p>
+          <div class="committee-rule"></div>
+          <span class="agenda-label">AGENDA</span>
+          <p class="committee-agenda">Mock IPL Mega Auction 2026.</p>
+          <a href="#register" class="committee-link">Take your place <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONFERENCE -->
+    <section class="conference-section" id="conference">
+      <div class="conference-orbit" aria-hidden="true">
+        <span class="orbit-one"></span>
+        <span class="orbit-two"></span>
+      </div>
+
+      <div class="conference-inner reveal">
+        <div class="conference-intro">
+          <p class="eyebrow">SAVE THE DATES</p>
+          <h2>Two days. Countless perspectives.<br><em>One shared world.</em></h2>
+          <p>
+            Join a virtual gathering of young voices ready to question,
+            collaborate, and shape meaningful solutions.
+          </p>
+        </div>
+
+        <div>
+          <div class="conference-stats">
+            <div>
+              <span>DATES</span>
+              <strong>31 OCT — 01 NOV</strong>
+              <small>2026</small>
+            </div>
+            <div>
+              <span>FORMAT</span>
+              <strong>ONLINE</strong>
+              <small>Virtual conference</small>
+            </div>
+            <div>
+              <span>DELEGATE FEE</span>
+              <strong>₹399</strong>
+              <small>Per delegate</small>
+            </div>
+            <div>
+              <span>CASH PRIZE POOL</span>
+              <strong>₹21,000+</strong>
+              <small>As announced by organisers</small>
+            </div>
+          </div>
+
+          <p class="certificate-note">
+            E-certificates for all delegates · Awards for winners
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION -->
+    <section class="section register-section" id="register">
+      <div class="register-panel reveal">
+        <div class="register-decoration" aria-hidden="true"></div>
+
+        <div class="register-content">
+          <p class="eyebrow">YOUR VOICE BELONGS HERE</p>
+          <h2>Ready to take<br><em>the floor?</em></h2>
+
+          <p>
+            Research with purpose. Debate with courage.
+            Leave your mark on the conversation.
+          </p>
+
+          <div class="register-meta">
+            <span>31 OCT — 1 NOV 2026</span>
+            <span class="meta-dot"></span>
+            <span>ONLINE</span>
+            <span class="meta-dot"></span>
+            <span>₹399</span>
+          </div>
+
+          <p class="register-footnote">
+            Please review the official form for registration
+            and payment instructions.
+          </p>
+        </div>
+
+        <div class="register-action">
+          <a
+            class="button button-gold"
+            href="https://forms.gle/q8c53EMB1KECmSTg7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply as a Delegate <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-main">
+
+      <div class="footer-brand-block">
+        <a class="brand footer-brand" href="#top">
+          <img
+            src="assets/vox-logo.jpeg"
+            alt="Vox Mundi logo"
+            width="49"
+            height="49"
+            loading="lazy"
+          >
+          <span class="brand-copy">
+            <strong>VOX MUNDI</strong>
+            <small>VOICE OF THE WORLD</small>
+          </span>
+        </a>
+
+        <p class="footer-tagline">
+          Speak with clarity.<br>
+          Debate with courage.<br>
+          <em>Lead with purpose.</em>
+        </p>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Stay Connected</h3>
+        <span class="footer-label">EMAIL</span>
+        <p><a href="mailto:voxmundi01@gmail.com">voxmundi01@gmail.com</a></p>
+
+        <span class="footer-label">SOCIAL</span>
+        <p>
+          <a href="https://www.instagram.com/_voxmundi/" target="_blank" rel="noopener noreferrer">
+            Instagram ↗
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Conference Queries</h3>
+        <span class="footer-label">UTKARSH GUPTA</span>
+        <p><a href="tel:+917355318885">+91 73553 18885</a></p>
+
+        <span class="footer-label">VAISHNAVI CHAUHAN</span>
+        <p><a href="tel:+917505472248">+91 75054 72248</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="current-year">2026</span> Vox Mundi</span>
+      <span>SPEAK. REPRESENT. RESOLVE.</span>
+      <a href="#top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
